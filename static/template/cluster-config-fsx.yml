@@ -21,8 +21,9 @@ Scheduling:
         - Name: c5
           MinCount: 0
           MaxCount: 64
+          DisableSimultaneousMultithreading: true
           Instances:
-            - InstanceType: c5.xlarge
+            - InstanceType: c5.4xlarge
       Networking:
         SubnetIds:
           - subnet-1234567
