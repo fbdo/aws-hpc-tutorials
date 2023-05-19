@@ -26,7 +26,7 @@ Go to the website https://catalog.workshops.aws/join
 
 You will then be prompted to enter a **Event access code**, review the terms and conditions, and **Join event**:
 
-#### Event access code: xxxx
+#### Event access code: 1004-0d7440-16
 
 ![Event access Login](</images/isc23/workshop-studio-event-access.png>)
 
