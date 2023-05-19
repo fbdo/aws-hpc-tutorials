@@ -12,7 +12,7 @@ IOR is considered the standard tool in HPC to evaluate parallel file system perf
 {{% /notice %}}
 #### IOR Options
 
-For this test, we will use these `ior` options `-w -r -o=/shared/test_dir -b=256m -a=POSIX -i=5 -F -z -t=64m -C`. The following table contains a description of the options used.
+For this test, we will use these `ior` options `-w -r -o=/shared/test_dir -b=256m -a=POSIX -i=2 -F -z -t=64m -C`. The following table contains a description of the options used.
 
 
 Option        | Description
@@ -84,7 +84,7 @@ Finished            : Tue May  9 12:14:07 2023
 
 #### Run a Performance Test with IOR
 
-In this step, you run your performance test using multiple nodes. In the following example, you use 8 c5.xlarge instances for a total of 32 processes. Each process writes 256 MB by blocks of 64 MB. You use the POSIX-IO method and directly access the file system to evaluate raw performances. The test is conducted 5 times to evaluate the variance, i.e. if performances are stable, for both read and write. You don't need to wait between read and writes because results will not differ.
+In this step, you run your performance test using multiple nodes. In the following example, you use 8 c5.4xlarge instances for a total of 32 processes. Each process writes 256 MB by blocks of 64 MB. You use the POSIX-IO method and directly access the file system to evaluate raw performances. The test is conducted 5 times to evaluate the variance, i.e. if performances are stable, for both read and write. You don't need to wait between read and writes because results will not differ.
 
 
 First, generate your batch submission script by copy and pasting the following code into your AWS Cloud9 terminal. Make sure you are connected to your cluster master instance.
@@ -98,7 +98,7 @@ cat > ~/ior_submission.sbatch << EOF
 #SBATCH --output=%x.out
 
 module load intelmpi
-mpirun /shared/ior/bin/ior -w -r -o=/shared/test_dir -b=256m -a=POSIX -i=5 -F -z -t=64m -C
+mpirun /shared/ior/bin/ior -w -r -o=/shared/test_dir -b=256m -a=POSIX -i=2 -F -z -t=64m -C
 EOF
 ```
 
@@ -132,7 +132,7 @@ After the job completes, run `cat ior.out` and you should see a result similar t
 Loading intelmpi version 2021.6.0
 IOR-4.0.0rc2+dev: MPI Coordinated Test of Parallel I/O
 Began               : Tue May  9 12:14:39 2023
-Command line        : /shared/ior/bin/ior -w -r -o=/shared/test_dir -b=256m -a=POSIX -i=5 -F -z -t=64m -C
+Command line        : /shared/ior/bin/ior -w -r -o=/shared/test_dir -b=256m -a=POSIX -i=2 -F -z -t=64m -C
 Machine             : Linux compute-dy-c5-1
 TestID              : 0
 StartTime           : Tue May  9 12:14:39 2023
@@ -165,12 +165,6 @@ write     960.23     15.01      0.831487    262144     65536      0.002670   4.2
 read      400.40     6.26       2.46        262144     65536      0.000770   10.23      1.03       10.23      0
 write     972.67     15.20      0.899350    262144     65536      0.002018   4.21       1.61       4.21       1
 read      395.37     6.18       2.54        262144     65536      0.000655   10.36      0.714747   10.36      1
-write     963.26     15.05      0.903939    262144     65536      0.002298   4.25       1.09       4.25       2
-read      385.05     6.02       2.57        262144     65536      0.000773   10.64      0.694684   10.64      2
-write     929.10     14.52      1.09        262144     65536      0.002420   4.41       1.12       4.41       3
-read      374.12     5.85       2.67        262144     65536      0.000867   10.95      0.596961   10.95      3
-write     973.41     15.21      0.904936    262144     65536      0.002181   4.21       1.63       4.21       4
-read      340.51     5.32       3.00        262144     65536      0.000805   12.03      3.04       12.03      4
 
 Summary of all tests:
 Operation   Max(MiB)   Min(MiB)  Mean(MiB)     StdDev   Max(OPs)   Min(OPs)  Mean(OPs)     StdDev    Mean(s) Stonewall(s) Stonewall(MiB) Test# #Tasks tPN reps fPP reord reordoff reordrand seed segcnt   blksiz    xsize aggs(MiB)   API RefNum
