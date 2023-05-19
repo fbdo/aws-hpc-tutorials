@@ -1,5 +1,5 @@
 +++
-title = "j. Summary and Cleanup"
+title = "j. Cleanup"
 date = 2019-09-18T10:46:30-04:00
 weight = 100
 tags = ["tutorial", "FSx", "summary"]
@@ -8,7 +8,7 @@ tags = ["tutorial", "FSx", "summary"]
 
 In this workshop, you learned how to create an Amazon FSx for Lustre shared file system with AWS ParallelCluster. Then, you learned how lazy file loading works and conducted performance tests on the Lustre partition using IOR. Finally, you looked at the Lustre partition metrics and visualized these using Amazon CloudWatch.
 
-Before moving to the next workshop, make sure to delete your cluster:
+Before moving to the next lab, make sure to delete your cluster:
 
 ![Delete Cluster](/images/pcluster/pcmanager-delete.png)
 
