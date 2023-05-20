@@ -35,9 +35,11 @@ onpremq*     up   infinite      1   idle onpremq-st-c6i-1
 
 squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+```
 
 And then submit a job.
 
+```bash
 cat << EOF >> test.sh
 #!/bin/bash
 hostname
@@ -45,7 +47,10 @@ sleep 30
 EOF
 
 sbatch test.sh
+```
 
+Check the status of the job
+```bash
 squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  1    cloudq  test.sh ec2-user  R       0:02      1 cloudq-st-c6i-1
