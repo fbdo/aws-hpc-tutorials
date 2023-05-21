@@ -7,7 +7,9 @@ tags = ["tutorial", "create", "ParallelCluster"]
 
 In the next few steps we will use the FileCache service to exchange data between the two clusters. We will create the cache connected to the Cloud Cluster and cache the data from the Onprem cluster. Before we proceed we need to know which Subnet the Cloud Cluster is setup in.
 
-{{% notice warning %}} Log out of the cluster and return to the Cloud9 instance. {{% /notice %}}
+{{% notice warning %}}
+Log out of the cluster and return to the Cloud9 instance.
+{{% /notice %}}
 
 Before we create the File Cache we need to know which Subnet the Cloud cluster is installed in.
 
@@ -103,4 +105,6 @@ Once the data repository status is "Available" it is ok to proceed.
 
 ![File Cache status](/images/federation-and-cache/filecache-repo-available.png)
 
-{{% notice warning %}} If you proceed before the status says available, the data will not be synced and the following steps will not work properly. {{% /notice %}}
+{{% notice warning %}}
+If you proceed before the status says available, the data will not be synced and the following steps will not work properly.
+{{% /notice %}}
