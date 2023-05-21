@@ -50,7 +50,7 @@ Throughout the tutorial you will be going through the following labs:
 
 
 #### Accessing Your Lab Account
-Once you get your credentials during the tutorial, access your account through https://dashboard.eventengine.run.
+Once you get your credentials during the tutorial, access your account through https://catalog.workshops.aws/join.
 
 {{% button href="https://github.com/aws-samples/aws-hpc-tutorials" icon="fas fa-bug" %}}Report an issue on GitHub{{% /button %}}
 {{% button href="mailto:aws-hpc-workshops@amazon.com" icon="fas fa-envelope" %}}Contact AWS HPC Team{{% /button %}}
