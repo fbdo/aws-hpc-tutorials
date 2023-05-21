@@ -11,7 +11,7 @@ tags = ["tutorial", "ParallelCluster"]
 Please download the following script and run it in a terminal inside your Cloud 9 Instance. If you are attending an AWS event, a Cloud9 instance will be provisioned for you. If you are following these instructions on your own, then please Start a Cloud9 instance and assign the instance Admin rights. If necessary refer to [Cloud9 setup]({{< ref "/07-aws-getting-started/02-requirement_notes.html" >}})
 
 ```bash
-wget --user isc23 --password computer https://isc23.hpcworkshops.com/scripts/federation-and-cache/workshop-setup.sh
+wget https://isc23.hpcworkshops.com/scripts/federation-and-cache/workshop-setup.sh
 chmod 755 workshop-setup.sh
 ./workshop-setup.sh | tee setup.log
 ```
